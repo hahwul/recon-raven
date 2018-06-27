@@ -4,7 +4,7 @@ require File.dirname(__FILE__)+"/src/func_util.rb"
 require File.dirname(__FILE__)+"/src/raven.class.rb"
 
 system("clear")
-# banner()
+ banner()
 
 if(ARGV[0] == "-u" or ARGV[0] == "--update")
   puts ":: Update ::"

@@ -13,5 +13,9 @@ def help_short()
   # TODO...
 end
 def banner()
-  # TODO... 
+  puts "╦═╗╔═╗╔═╗╔═╗╔╗╔   ╦═╗╔═╗╦  ╦╔═╗╔╗╔
+╠╦╝║╣ ║  ║ ║║║║───╠╦╝╠═╣╚╗╔╝║╣ ║║║
+╩╚═╚═╝╚═╝╚═╝╝╚╝   ╩╚═╩ ╩ ╚╝ ╚═╝╝╚╝"
+  puts "[+] Reconnaissance tool of Penetration test & Bug Bounty"
+  puts "[+] Code by HAHWUL(https://www.hahwul.com)"
 end
