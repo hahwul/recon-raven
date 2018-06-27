@@ -1,7 +1,19 @@
-# recon-raven
+# Recon-Raven
 Reconnaissance tool of Penetration test & Bug Bounty
 
-TODO LIST
+## How to install?
+```
+#> ./install.sh
+```
+## Usage 
+```
+#> rraven
+```
+or 
+```
+#> ruby rranven.rb
+```
+## Support & TODO LIST
 - [ ] Subdomain search/fuzz
 - [ ] Subdomain takeover
 - [ ] SSL vulnerability scanning (with a2sv)
