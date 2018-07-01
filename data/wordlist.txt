@@ -1,0 +1,14 @@
+mail
+smtp
+pop
+www
+test
+dev
+open
+main
+connect
+admin
+pine
+food
+vaha
+voice

@@ -29,7 +29,7 @@ else  # [ Main ] Start
       # - Interactive Shell 
   print_and_flush "Go!"
   $raven = Raven.new()
-
+  $raven.scan_subdomain()
 
 end # Main end
 end # -v end
