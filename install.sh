@@ -2,6 +2,7 @@
 echo '[+} Install Recon-Raven'
 echo '[+] Install GEM'
 gem install colorize
+gem install net-ping
 echo '[+] set command'
 MYPWD=`pwd`
 echo '#/usr/bin/ruby

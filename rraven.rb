@@ -4,7 +4,7 @@ require File.dirname(__FILE__)+"/src/func_util.rb"
 require File.dirname(__FILE__)+"/src/raven.class.rb"
 
 system("clear")
- banner()
+banner()
 
 if(ARGV[0] == "-u" or ARGV[0] == "--update")
   puts ":: Update ::"
@@ -26,13 +26,27 @@ else if(ARGV.size > 1)
   exit()
 
 else  # [ Main ] Start
-      # - Interactive Shell 
-  print_and_flush "Go!"
+      # - Interactive Shell
+  print_and_flush "\n -- Pre config\n"
   $raven = Raven.new()
+
+  print "[?] Input target : ".colorize(:light_blue)
+  $raven.set_target(gets.chomp)
+
+  print "[?] Nuber of thread [Default 5]: ".colorize(:light_blue)
+  $raven.set_thread(gets.to_i)
+
+  print "[+] Pre setting is complate, press any key for scanning .. ".colorize(:green)
+  gets.chomp
+  system("clear")
+  banner()
+  puts " -- Start scan"
   $raven.scan_subdomain()
+#  $raven.scan_nmap("localhost")
 
 end # Main end
 end # -v end
 end # -h end
 end # -u end
+
 
