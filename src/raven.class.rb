@@ -104,7 +104,7 @@ class Raven
                         "This UserVoice subdomain is currently available!",
                         "but is not configured for an account on our platform",
                         "<title>Help Center Closed | Zendesk</title>"]
-    File.open("./data/wordlist.txt","r").each_line do |sub|
+      File.open(File.dirname(__FILE__)+"/../data/wordlist.txt","r").each_line do |sub|
       begin
         line = sub.chomp!
         #puts "#{line}.#{@raven_target_domain}"
