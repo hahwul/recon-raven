@@ -15,14 +15,17 @@ or
 ```
 #> ruby rranven.rb
 ```
-## Support & TODO LIST
-- [ ] Subdomain search/fuzz
-- [ ] Subdomain takeover
+## Support function & TODO LIST
+- [x] Subdomain discovery(Fuzz)
+- [x] Subdomain takeover vulnerability
+- [x] Subdomain ping(connection check)
+- [ ] Port scan & Subdomain port scan
+- [ ] Directory & File BruteForce
+- [ ] Email search
 - [ ] SSL vulnerability scanning (with a2sv)
-- [ ] Report to HTML/XML
+- [ ] Report to HTML/XML and Graphic result
 
-
-## How to Update?
+## Update
 ```
 #> rraven -u 
 ```
