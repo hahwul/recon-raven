@@ -20,3 +20,9 @@ or
 - [ ] Subdomain takeover
 - [ ] SSL vulnerability scanning (with a2sv)
 - [ ] Report to HTML/XML
+
+
+## How to Update?
+```
+#> rraven -u 
+```
