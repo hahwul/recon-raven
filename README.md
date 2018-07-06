@@ -1,7 +1,7 @@
 # Recon-Raven
 Reconnaissance tool of Penetration test & Bug Bounty
 
-<img src="https://user-images.githubusercontent.com/13212227/42333510-e04c72c2-80b5-11e8-888d-632279a303ff.jpg" width=100%>
+<img src="https://user-images.githubusercontent.com/13212227/42388790-a2f7ce9a-8181-11e8-8bd0-159efa971886.png" width=100%>
 
 ## How to install?
 ```
