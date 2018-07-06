@@ -1,5 +1,6 @@
 # Recon-Raven
-Reconnaissance tool of Penetration test & Bug Bounty
+Reconnaissance tool of Penetration test & Bug Bounty<br>
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 <img src="https://user-images.githubusercontent.com/13212227/42388790-a2f7ce9a-8181-11e8-8bd0-159efa971886.png" width=100%>
 
