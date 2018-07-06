@@ -29,14 +29,19 @@ else  # [ Main ] Start
       # - Interactive Shell
   print_and_flush "\n -- Pre config\n"
   $raven = Raven.new()
+  # Qustion.
+  $raven.set_target(Ask.input "[?] Input target".colorize(:light_blue))
+  $raven.set_thread(Ask.input "[?] Number of thread [default 5]".colorize(:light_blue))
+  # TODO . idx => list in raven class
+  idx = Ask.checkbox "[?] Select module  (space : check, enter : confirm)".colorize(:light_blue), [
+  "All",
+  "subdomain discovery & takeover",
+  "portscan",
+  "directory & file bruteforce"
+  ]
+  puts idx
 
-  print "[?] Input target : ".colorize(:light_blue)
-  $raven.set_target(gets.chomp)
-
-  print "[?] Nuber of thread [Default 5]: ".colorize(:light_blue)
-  $raven.set_thread(gets.to_i)
-
-  print "[+] Pre setting is complate, press any key for scanning .. ".colorize(:green)
+  print "[+] Pre setting is complate, press 'enter' key for scanning .. ".colorize(:green)
   gets.chomp
   system("clear")
   banner()
@@ -47,6 +52,4 @@ else  # [ Main ] Start
 end # Main end
 end # -v end
 end # -h end
-end # -u end
-
-
+end
