@@ -34,7 +34,7 @@ class Raven
     # TODO // check subdomain , etc... 
     begin
       sock = TCPSocket.new(@raven_target_domain,"80")
-      puts "#{port} open." if sock
+      rputs "#{port} open." if sock
     rescue => ex
       p ex unless ex.is_a?(Errno::ECONNREFUSED)
     ensure
@@ -43,7 +43,7 @@ class Raven
   end 
 
   def scan_subdomain()  # scan subdomain &  takeover
-    puts "[+] Subdomain Discovery & TakeOver Vulnerability"
+    rputs "[+] Subdomain Discovery & TakeOver Vulnerability"
     threads = []
     pattern_sites={"createsend":"https://www.zendesk.com/",
                     "cargocollective":"https://cargocollective.com/",
@@ -104,10 +104,13 @@ class Raven
                         "This UserVoice subdomain is currently available!",
                         "but is not configured for an account on our platform",
                         "<title>Help Center Closed | Zendesk</title>"]
-      File.open(File.dirname(__FILE__)+"/../data/wordlist.txt","r").each_line do |sub|
+      i=0 
+      wordlist = File.open(File.dirname(__FILE__)+"/../data/wordlist.txt","r").readlines
+      max = wordlist.size
+      wordlist.each do |sub|
       begin
         line = sub.chomp!
-        #puts "#{line}.#{@raven_target_domain}"
+        #rputs "#{line}.#{@raven_target_domain}"
         tmp_domain = ""
         tmp_ip = ""
         tmp_ping = ""
@@ -117,32 +120,32 @@ class Raven
         result = Socket.gethostbyname("#{line}.#{@raven_target_domain}")
         ip = result[3].unpack("CCCC").join(".")
         reverse = Socket.gethostbyaddr(ip)
-        puts "[+] #{line}.#{@raven_target_domain}\t#{ip}\t#{reverse[0]}".colorize(:green)
+        rputs "[+] #{line}.#{@raven_target_domain}\t#{ip}\t#{reverse[0]}".colorize(:green)
         tmp_domain = "#{line}.#{@raven_target_domain}"
         tmp_ip = ip
         p = Net::Ping::External.new("#{line}.#{@raven_target_domain}")
         if p.ping?
-          puts "  - PING: OK"
+          rputs "  - PING: OK"
           tmp_ping = true
         else
-          puts "  - PING: FAIL"
+          rputs "  - PING: FAIL"
           tmp_ping = false
         end
         begin # Sub domain takeover check
           r = Resolv::DNS.open do |dns|
             dns.getresource("#{line}.#{@raven_target_domain}", Resolv::DNS::Resource::IN::CNAME)
           end
-          puts  "  - CNAME: "+r.name.to_s
+          rputs  "  - CNAME: "+r.name.to_s
           tmp_cname = r.name.to_s
           pattern_site.each do |site|
             if r.name.to_s.include? site[0]
-              puts " - SITE: "+site[0]
+              rputs " - SITE: "+site[0]
               tmp_site = site[0]
               uri = URI(site[0])  # check url
               pattern_response.each do |res|
                 result = Net::HTTP.get(uri)
                 if res.include? res
-                  puts " - TAKEOVER"+uri
+                  rputs " - TAKEOVER"+uri
                   tmp_takeover = uri
                 end 
               end 
@@ -154,8 +157,10 @@ class Raven
         end
       rescue #SocketError => e
          # not found
-         # puts "a"
-      end
+         # rputs "a"
+      end  
+      print_state(i,max.to_i,"Scanning subdomain - #{sub.to_s}.#{@raven_target_domain}")
+      i+=1
     end
   end
 end
